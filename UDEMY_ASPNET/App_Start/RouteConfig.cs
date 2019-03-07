@@ -13,6 +13,9 @@ namespace UDEMY_ASPNET
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            //Preciso mudar aqui o {id} para {movieId} para que funcione esse link:
+            //http://localhost:50328/movies/edit/100
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

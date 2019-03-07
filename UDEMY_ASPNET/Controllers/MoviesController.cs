@@ -24,5 +24,31 @@ namespace UDEMY_ASPNET.Controllers
             //return new EmptyResult();
             //return RedirectToAction("Index", "Home", new { page = 1, sortBy = "name" });
         }
+
+        public ActionResult Edit(int movieId)
+        {
+            return Content("id=" + movieId);
+
+            //Para realizar o teste: 
+            //http://localhost:50328/movies/edit/100
+            //http://localhost:50328/movies/edit?id=10
+        }
+
+        public ActionResult Index(int? pageIndex, string sortBy)
+        {
+            if (!pageIndex.HasValue)
+                pageIndex = 1;
+
+            if (String.IsNullOrWhiteSpace(sortBy))
+                sortBy = "Name";
+
+            return Content(string.Format("pageIndex={0}&sortby={1}", pageIndex, sortBy));
+
+            //Para realizar o teste: 
+            //http://localhost:50328/movies?pageindex=10
+            //http://localhost:50328/movies?pageindex=10&sortby=releasedate
+
+        }
+
     }
 }
