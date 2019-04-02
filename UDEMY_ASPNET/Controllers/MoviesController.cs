@@ -50,5 +50,13 @@ namespace UDEMY_ASPNET.Controllers
 
         }
 
+        public ActionResult ByReleaseDate(int year, int month)
+        {
+            return Content(year + "/" + month);
+
+            //Relizar teste:
+            //http://localhost:50328/movies/released/2015/04
+        }
+
     }
 }
