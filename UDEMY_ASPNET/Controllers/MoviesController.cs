@@ -18,7 +18,9 @@ namespace UDEMY_ASPNET.Controllers
         {
             var movie = new Movie() { Name = "Shrek!" };
 
-            return View(movie);
+            var viewResult = new ViewResult();
+            return View(viewResult.ViewData.Model);
+
             //return Content("Olá Mundo!!!");
             //return HttpNotFound();
             //return new EmptyResult();
