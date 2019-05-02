@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using UDEMY_ASPNET.Models;
+using UDEMY_ASPNET.ViewModels;
 
 namespace UDEMY_ASPNET.Controllers
 {
@@ -18,8 +19,20 @@ namespace UDEMY_ASPNET.Controllers
         {
             var movie = new Movie() { Name = "Shrek!" };
 
-            var viewResult = new ViewResult();
-            return View(viewResult.ViewData.Model);
+            var customers = new List<Customer>
+            {
+                new Customer { Name = "Cliente 1"},
+                new Customer { Name = "Cliente 2"}
+            };
+
+
+            var viewModel = new RandomMovieViewModel
+            {
+                Movie = movie,
+                Customers = customers
+            };
+
+            return View(viewModel);
 
             //return Content("Olá Mundo!!!");
             //return HttpNotFound();
